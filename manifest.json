@@ -1,0 +1,20 @@
+{
+	"name" : "Quick Execute",
+	"version" : "1.0",
+	"author" : "Winston Marvel",
+	 "manifest_version" : 2,
+	"description": "Tool that helps open samba folders and files with a simple right click.",
+	"browser_action":{
+		"default_icon": "icon.png",
+		"default_popup" : "popup.html"
+	},
+	"icons":{
+      "128": "icon128.png"
+   }
+	,
+
+	"permissions" : [  "contextMenus" ],
+	"background" :{
+		"scripts": ["handler.js"]
+	}
+}

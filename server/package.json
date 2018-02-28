@@ -1,0 +1,15 @@
+{
+  "name": "quick-execute",
+  "version": "1.0.0",
+  "description": "Server for chrome addon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },	
+  "dependencies" : {
+		"express": "latest",
+		"node-run-cmd" : "latest"
+  },
+  "author": "Winston Jude",
+  "license": "ISC"
+}
