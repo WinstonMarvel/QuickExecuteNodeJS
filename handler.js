@@ -51,13 +51,6 @@ var sambaImages = createMenuItem ({
   parentId : "ExplorerMenuParent"
 }, menu_click); 
 
-// //Pub folder
-// var pubMain = createMenuItem ({
-//   id: "pubMain",
-//   title: "Open Pub folder",
-//   contexts: ["selection"], 
-//   parentId : "ExplorerMenuParent"
-// }, menu_click);
 
 //Pub Photoshop
 var pubPhotoshop = createMenuItem ({
@@ -67,7 +60,13 @@ var pubPhotoshop = createMenuItem ({
   parentId : "ExplorerMenuParent"
 }, menu_click);
 
-
+//Create Fikder
+var pubMain = createMenuItem ({
+  id: "createFolder",
+  title: "Create Local Folder",
+  contexts: ["selection"], 
+  parentId : "ExplorerMenuParent"
+}, menu_click);
 
 
 /////////////SUBLIME Menus//////////////////
@@ -207,6 +206,11 @@ console.log("This works");
 
 		case "initJS":
 		request += "method=edit&path=" + samba_drive_letter + (info.selectionText).charAt(0) + "\\" + info.selectionText + "\\design\\scripts\\init.js";
+		console.log(request);
+		break;
+
+		case "createFolder":
+		request += "method=create&foldername=" + info.selectionText;
 		console.log(request);
 		break;
 

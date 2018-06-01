@@ -1,5 +1,8 @@
+const mkdirp = require('mkdirp');
 const express = require('express');
 const nrc = require('node-run-cmd');
+
+
 
 const app = express();
 
@@ -18,7 +21,7 @@ nrc.run(build_command(req), { onDone: res.write(exit_function()) });
 res.end();
 });
 
-
+ 
 
 //Separate Get
 //Check Requests with switch case
@@ -55,11 +58,18 @@ let command;
 		command = '"'+ sublime_path + '"' + ' ' + path;	
 	}
 
-	// else if(method =='create')
-	// {
-	// 	// command = 'cd' + ' ' + path + ' ' + '&' + ' ' + 'md' + ' ' + foldername + ' ' + '&' + ' ' + 'explorer.exe' + ' ' + 'C:\\Firmsites\\' + foldername.charAt(0) + '\\' + foldername;//Change only if you are using another OS
-	// 	command = 'mkdir C:\\Firmsites\\' + foldername.charAt(0) + '\\'+ foldername;
-	// }
+	else if(method =='create')
+	{
+		try{
+			mkdirp.sync('C:\\Firmsites\\'  + foldername.charAt(0) + '\\'+ foldername );
+		}
+		catch(err){ 
+			console.log(err);
+			command = 'explorer.exe mkdir C:\\Firmsites\\';
+			return command;
+		}
+		command = 'explorer.exe ' + 'C:\\Firmsites\\'  + foldername.charAt(0) + '\\'+ foldername;
+	}
 	// else if(method =='editAll')
 	// {
 
